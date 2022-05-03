@@ -11,4 +11,8 @@ Button.propTypes={
     children: PropTypes.any.isRequired,
     bgColor: PropTypes.string.isRequired
 }
+
+Button.defaultProps={
+    bgColor:'yellow'
+}
 export default Button
