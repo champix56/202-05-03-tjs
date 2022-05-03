@@ -8,6 +8,7 @@ const Button = (props) => {
     <button
       className={style.Button}
       style={{...props.style, backgroundColor: props.bgColor, color: props.color }}
+      type={props.type}
     >
       {props.children}
     </button>
@@ -18,7 +19,8 @@ Button.propTypes = {
   children: PropTypes.any.isRequired,
   bgColor: PropTypes.string,
   color: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
+  type: PropTypes.string
 };
 
 Button.defaultProps = {};
