@@ -1,27 +1,35 @@
 import React, { useEffect, useState } from "react";
 import style from "./Button.module.css";
 import PropTypes from "prop-types";
-
+//protection de reclick avant execution du settimeout
+let descripteurSetTimeOut = undefined;
 const Button = (props) => {
   const [isClicked, setIsClicked] = useState(false);
   useEffect(() => {
-    console.log('isClicked a changer ->',isClicked)
-    if(true===isClicked){
-        setTimeout(()=>{setIsClicked(false)},1000)
+    console.log("isClicked a changer ->", isClicked);
+    if (true === isClicked && descripteurSetTimeOut === undefined) {
+      descripteurSetTimeOut = setTimeout(() => {
+        setIsClicked(false);
+        descripteurSetTimeOut = undefined;
+      }, 1000);
     }
-  }, [isClicked])
+  }, [isClicked]);
   return (
     <button
       className={style.Button}
-      style={{...props.style, backgroundColor: props.bgColor, color: props.color }}
+      style={{
+        ...props.style,
+        backgroundColor: props.bgColor,
+        color: props.color,
+      }}
       type={props.type}
-      onClick={(evt)=>{
+      onClick={(evt) => {
         setIsClicked(true);
         props.onButtonClicked();
       }}
     >
       {props.children}
-      <br/>
+      <br />
       {isClicked.toString()}
     </button>
   );
@@ -33,11 +41,11 @@ Button.propTypes = {
   color: PropTypes.string,
   style: PropTypes.object,
   type: PropTypes.string,
-  onButtonClicked: PropTypes.func.isRequired
+  onButtonClicked: PropTypes.func.isRequired,
 };
 
 Button.defaultProps = {
-    type:'button',
-    onButtonClicked:()=>{}
+  type: "button",
+  onButtonClicked: () => {},
 };
 export default Button;
