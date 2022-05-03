@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="App">
       {/* <Button text="Un texte de button"></Button> */}
-      <Button>du texte children</Button>
-      <Button>
+      <Button bgColor="skyblue">du texte children</Button>
+      <Button bgColor="aquamarine">
         <div>text children node</div>
       </Button>
       <Button>
