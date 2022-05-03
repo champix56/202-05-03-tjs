@@ -6,6 +6,9 @@ const Button = (props) => {
   const [isClicked, setIsClicked] = useState(false);
   useEffect(() => {
     console.log('isClicked a changer ->',isClicked)
+    if(true===isClicked){
+        setTimeout(()=>{setIsClicked(false)},1000)
+    }
   }, [isClicked])
   return (
     <button
