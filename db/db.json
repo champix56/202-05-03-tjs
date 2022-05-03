@@ -1,0 +1,39 @@
+{
+  "memes": [
+    {
+      "id": 0,
+      "titre": "titre meme 1",
+      "text": "Mon meme",
+      "x": 100,
+      "y": 100,
+      "fontSize": 12,
+      "fontWeight": 700,
+      "color": "#ADE0F1",
+      "underline": true,
+      "italic": false,
+      "imageId": 0
+    },
+    {
+      "titre": "titre meme 1",
+      "text": "Mon meme",
+      "x": 100,
+      "y": 100,
+      "fontSize": 12,
+      "fontWeight": 700,
+      "color": "#ADE0F1",
+      "underline": true,
+      "italic": false,
+      "imageId": 0,
+      "id": 1
+    }
+  ],
+  "images": [
+    {
+      "id": 0,
+      "title": "gwenhadu",
+      "href": "gwenhadu.jpg",
+      "w": 1600,
+      "h": 800
+    }
+  ]
+}
