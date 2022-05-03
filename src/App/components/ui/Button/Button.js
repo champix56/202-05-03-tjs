@@ -9,6 +9,9 @@ const Button = (props) => {
       className={style.Button}
       style={{...props.style, backgroundColor: props.bgColor, color: props.color }}
       type={props.type}
+      onClick={(evt)=>{
+          props.onButtonClicked();
+      }}
     >
       {props.children}
     </button>
@@ -20,10 +23,12 @@ Button.propTypes = {
   bgColor: PropTypes.string,
   color: PropTypes.string,
   style: PropTypes.object,
-  type: PropTypes.string
+  type: PropTypes.string,
+  onButtonClicked: PropTypes.func.isRequired
 };
 
 Button.defaultProps = {
-    type:'button'
+    type:'button',
+    onButtonClicked:()=>{}
 };
 export default Button;

@@ -10,7 +10,17 @@ function App() {
       <Button bgColor="aquamarine">
         <div>text children node</div>
       </Button>
-      <Button color="blue" style={{textDecoration:'underline', fontWeight:900,fontStyle:'italic'}}>
+      <Button
+        onButtonClicked={() => {
+          console.log("button clicked");
+        }}
+        color="blue"
+        style={{
+          textDecoration: "underline",
+          fontWeight: 900,
+          fontStyle: "italic",
+        }}
+      >
         <div>text children node1</div>
         <div>text children node2</div>
       </Button>
