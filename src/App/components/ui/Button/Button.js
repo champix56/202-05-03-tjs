@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import style from "./Button.module.css";
 import PropTypes from "prop-types";
-//protection de reclick avant execution du settimeout
-let descripteurSetTimeOut = undefined;
+
 const Button = (props) => {
   const [isClicked, setIsClicked] = useState(false);
   useEffect(() => {
     console.log("isClicked a changer ->", isClicked);
-    if (true === isClicked && descripteurSetTimeOut === undefined) {
-      descripteurSetTimeOut = setTimeout(() => {
+    if (true === isClicked) {
+      setTimeout(() => {
         setIsClicked(false);
-        descripteurSetTimeOut = undefined;
       }, 1000);
     }
   }, [isClicked]);
@@ -24,7 +22,7 @@ const Button = (props) => {
       }}
       type={props.type}
       onClick={(evt) => {
-        setIsClicked(true);
+        if (true !== isClicked) setIsClicked(true);
         props.onButtonClicked();
       }}
     >
