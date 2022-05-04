@@ -29,7 +29,7 @@ class App extends React.Component {
               (e) => e.id === this.state.memes[0].imageId
             )}
           />}
-          <MemeForm/>
+          <MemeForm images={this.state.images}/>
         </FlexW>
       </div>
     );
