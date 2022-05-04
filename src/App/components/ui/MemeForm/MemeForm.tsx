@@ -18,6 +18,9 @@ const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
         <h2>Image</h2>
         <select>
           <option value="-1">Aucune</option>
+          {
+            props.images.map((e:IImage,i:number)=>{return <option key={`opt-${i}`} value={e.id}>{e.name}</option>})
+          }
         </select>
         <hr />
         <h2>text</h2>
