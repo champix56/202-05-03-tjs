@@ -1,5 +1,6 @@
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 import { ADR_REST } from "../config/config";
+import { DummyMeme } from "../interfaces/common";
 
 const ressourcesInitialState = {
   images: [],
@@ -36,6 +37,22 @@ function ressourcesReducer(state = ressourcesInitialState, action) {
       return state;
   }
 }
-export const store = createStore(ressourcesReducer);
+
+
+const ACTIONS_CURRENT=Object.freeze({
+  UPDATE_MEME:'UPDATE_MEME'
+});
+
+const currentReducer = (state = DummyMeme, action) => {
+  switch (action.type) {
+
+  case ACTIONS_CURRENT.UPDATE_MEME:return {...state,...action.value}
+
+  default:
+    return state
+  }
+}
+const combinedReduc=combineReducers({current:currentReducer,ressources:ressourcesReducer})
+export const store = createStore(combinedReduc,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 store.dispatch({type: ACTION_RESSOURCES.INIT_RESSOURCES});
