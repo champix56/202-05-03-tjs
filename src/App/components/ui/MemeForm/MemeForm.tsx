@@ -2,8 +2,13 @@ import React from "react";
 
 import styles from "./MemeForm.module.css";
 import PropTypes from "prop-types";
+import { IImage } from "orsys-tjs-meme/dist/interfaces/common";
 
-const MemeForm = (props) => {
+
+interface IMemeFormProps{
+  images:Array<IImage>
+}
+const MemeForm:React.FunctionComponent<IMemeFormProps> = (props) => {
   return (
     <div data-testid="MemeForm" className={styles.MemeForm}>
       <form>
