@@ -31,14 +31,14 @@
     {
       "id": 0,
       "title": "gwenhadu",
-      "href": "gwenhadu.jpg",
+      "url": "gwenhadu.jpg",
       "w": 2050,
       "h": 1022
     },
     {
         "id": 1,
         "title": "futurama",
-        "href": "futurama.jpg",
+        "url": "futurama.jpg",
         "w": 1000,
         "h": 563
       }
