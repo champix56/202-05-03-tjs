@@ -1,0 +1,7 @@
+.FlexW {
+    display: flex;
+    height: 80vh;
+}
+.FlexW>*:nth-child(1) {
+    flex-grow: 1;
+}
