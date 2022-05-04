@@ -14,7 +14,7 @@ const Button = (props) => {
   }, [isClicked]);
   return (
     <button
-      className={style.Button}
+      className={`${style.Button}${isClicked?' '+style.clicked:''}`}
       style={{
         ...props.style,
         backgroundColor: props.bgColor,
@@ -27,8 +27,6 @@ const Button = (props) => {
       }}
     >
       {props.children}
-      <br />
-      {isClicked.toString()}
     </button>
   );
 };
