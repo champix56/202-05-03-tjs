@@ -30,8 +30,8 @@ MemeThumbnail.propTypes = {
 function mapStateToProps(state:any,ownprops:any){
   return {
     ...ownprops,
-    memes:state.memes,
-    images:state.images
+    memes:state.ressources.memes,
+    images:state.ressources.images
   }
 }
 function mapDispatchToProps(dispatch){
