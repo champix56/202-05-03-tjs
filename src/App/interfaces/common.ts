@@ -1,4 +1,4 @@
-export interface I_Meme{
+export interface IMeme{
     id?:number
     titre:string
     text:string
@@ -11,7 +11,7 @@ export interface I_Meme{
     imageId:number
     color:string
 };
-export const DummyMeme:I_Meme={
+export const DummyMeme:IMeme={
     titre:'',
     text:'',
     x:0,
@@ -20,10 +20,10 @@ export const DummyMeme:I_Meme={
     fontSize:30,
     underline:false,
     italic:false,
-    imageId:0,
+    imageId:-1,
     color:'#000000'
 };
-export interface I_Image{
+export interface IImage{
     id:number
     url:string
     w:number
