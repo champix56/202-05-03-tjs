@@ -39,7 +39,7 @@ function ressourcesReducer(state = ressourcesInitialState, action) {
 }
 
 
-const ACTIONS_CURRENT=Object.freeze({
+export const ACTIONS_CURRENT=Object.freeze({
   UPDATE_MEME:'UPDATE_MEME'
 });
 
