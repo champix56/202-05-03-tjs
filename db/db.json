@@ -30,14 +30,14 @@
   "images": [
     {
       "id": 0,
-      "title": "gwenhadu",
+      "name": "gwenhadu",
       "url": "gwenhadu.jpg",
       "w": 2050,
       "h": 1022
     },
     {
         "id": 1,
-        "title": "futurama",
+        "name": "futurama",
         "url": "futurama.jpg",
         "w": 1000,
         "h": 563
