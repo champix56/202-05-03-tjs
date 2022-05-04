@@ -1,10 +1,11 @@
 import React from "react";
 import FlexW from "./components/layout/FlexW/FlexW";
-import { MemeSVGViewer } from "orsys-tjs-meme";
+import { MemeSVGThumbnail, MemeSVGViewer } from "orsys-tjs-meme";
 import { ADR_REST } from "./config/config";
 import MemeForm from "./components/ui/MemeForm/MemeForm";
 import { IImage, IMeme } from "orsys-tjs-meme/dist/interfaces/common";
 import { DummyMeme } from "./interfaces/common";
+import MemeThumbnail from "./components/ui/MemeThumbnail/MemeThumbnail";
 interface IAppState {
   memes: Array<IMeme>;
   images: Array<IImage>;
@@ -29,6 +30,7 @@ class App extends React.Component<IAppProps, IAppState> {
   render() {
     return (
       <div className="App">
+        <MemeThumbnail memes={this.state.memes} images={this.state.images}/>
         <FlexW>
           <MemeSVGViewer
             meme={this.state.current}
