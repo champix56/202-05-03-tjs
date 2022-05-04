@@ -3,18 +3,18 @@ import FlexW from "./components/layout/FlexW/FlexW";
 import { MemeSVGViewer } from "orsys-tjs-meme";
 import { ADR_REST } from "./config/config";
 import MemeForm from "./components/ui/MemeForm/MemeForm";
-import {  IImage, IMeme } from "orsys-tjs-meme/dist/interfaces/common";
+import { IImage, IMeme } from "orsys-tjs-meme/dist/interfaces/common";
 import { DummyMeme } from "./interfaces/common";
-interface IAppState{
-  memes:Array<IMeme>,
-  images:Array<IImage>,
-  current:IMeme
+interface IAppState {
+  memes: Array<IMeme>;
+  images: Array<IImage>;
+  current: IMeme;
 }
-interface IAppProps{}
-class App extends React.Component<IAppProps,IAppState> {
+interface IAppProps {}
+class App extends React.Component<IAppProps, IAppState> {
   constructor(props) {
     super(props);
-    this.state = { memes: [], images: [],current:DummyMeme };
+    this.state = { memes: [], images: [], current: DummyMeme };
   }
   componentDidMount() {
     const memes = fetch(ADR_REST + "/memes").then((flux) => flux.json());
@@ -30,14 +30,19 @@ class App extends React.Component<IAppProps,IAppState> {
     return (
       <div className="App">
         <FlexW>
-  
-            <MemeSVGViewer
+          <MemeSVGViewer
             meme={this.state.current}
             image={this.state.images.find(
               (e) => e.id === this.state.current.imageId
             )}
           />
-          <MemeForm images={this.state.images}/>
+          <MemeForm
+            images={this.state.images}
+            meme={this.state.current}
+            onFormChange={(objt: object) => {
+              this.setState({current:{...this.state.current,...objt}});
+            }}
+          />
         </FlexW>
       </div>
     );
