@@ -2,7 +2,7 @@ import React from "react";
 import FlexW from "./components/layout/FlexW/FlexW";
 import { MemeSVGThumbnail, MemeSVGViewer } from "orsys-tjs-meme";
 import { ADR_REST } from "./config/config";
-import MemeForm from "./components/ui/MemeForm/MemeForm";
+import MemeForm, { ConnectedMemeForm } from "./components/ui/MemeForm/MemeForm";
 import { IImage, IMeme } from "orsys-tjs-meme/dist/interfaces/common";
 import { DummyMeme } from "./interfaces/common";
 import { ConnectedMemeThumbnail } from "./components/ui/MemeThumbnail/MemeThumbnail";
@@ -36,13 +36,7 @@ class App extends React.Component<IAppProps, IAppState> {
               (e) => e.id === this.state.current.imageId
             )}
           />
-          <MemeForm
-            images={this.state.images}
-            meme={this.state.current}
-            onFormChange={(objt: object) => {
-              this.setState({current:{...this.state.current,...objt}});
-            }}
-          />
+          <ConnectedMemeForm/>
         </FlexW>
       </div>
     );
