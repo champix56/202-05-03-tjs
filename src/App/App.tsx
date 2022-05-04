@@ -1,6 +1,6 @@
 import React from "react";
 import FlexW from "./components/layout/FlexW/FlexW";
-import { MemeSVGThumbnail, MemeSVGViewer } from "orsys-tjs-meme";
+import MemeSVGViewer from './components/ui/ConnectedMemeViewer/ConnectedMemeViewer'
 import { ADR_REST } from "./config/config";
 import MemeForm, { ConnectedMemeForm } from "./components/ui/MemeForm/MemeForm";
 import { IImage, IMeme } from "orsys-tjs-meme/dist/interfaces/common";
@@ -30,12 +30,7 @@ class App extends React.Component<IAppProps, IAppState> {
         {/* <MemeThumbnail memes={this.state.memes} images={this.state.images}/> */}
         <ConnectedMemeThumbnail/>
         <FlexW>
-          <MemeSVGViewer
-            meme={this.state.current}
-            image={this.state.images.find(
-              (e) => e.id === this.state.current.imageId
-            )}
-          />
+          <MemeSVGViewer/>
           <ConnectedMemeForm/>
         </FlexW>
       </div>
