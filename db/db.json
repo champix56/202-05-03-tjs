@@ -77,6 +77,19 @@
       "italic": false,
       "imageId": 1,
       "id": 6
+    },
+    {
+      "titre": "",
+      "text": "Orsys is Cool",
+      "x": 334,
+      "y": 541,
+      "fontWeight": "500",
+      "fontSize": 53,
+      "underline": 1,
+      "italic": false,
+      "imageId": 1,
+      "color": "#2885a4",
+      "id": 7
     }
   ],
   "images": [
@@ -88,11 +101,11 @@
       "h": 1022
     },
     {
-        "id": 1,
-        "name": "futurama",
-        "url": "futurama.jpg",
-        "w": 1000,
-        "h": 563
-      }
+      "id": 1,
+      "name": "futurama",
+      "url": "futurama.jpg",
+      "w": 1000,
+      "h": 563
+    }
   ]
 }
