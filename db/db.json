@@ -15,7 +15,7 @@
     },
     {
       "titre": "titre meme 1",
-      "text": "Mon meme",
+      "text": "Love js",
       "x": 100,
       "y": 100,
       "fontSize": 12,
@@ -23,8 +23,60 @@
       "color": "#ADE0F1",
       "underline": true,
       "italic": false,
+      "imageId": 1,
+      "id": 2
+    },
+    {
+      "titre": "titre meme 1",
+      "text": "Love react",
+      "x": 100,
+      "y": 100,
+      "fontSize": 24,
+      "fontWeight": 700,
+      "color": "#FE0BE0",
+      "underline": true,
+      "italic": false,
       "imageId": 0,
-      "id": 1
+      "id": 3
+    },
+    {
+      "titre": "titre meme 1",
+      "text": "Mon react is the best",
+      "x": 100,
+      "y": 100,
+      "fontSize": 34,
+      "fontWeight": 700,
+      "color": "#AFEE0A",
+      "underline": true,
+      "italic": false,
+      "imageId": 0,
+      "id": 4
+    },
+    {
+      "titre": "titre meme 1",
+      "text": "I react my pp",
+      "x": 150,
+      "y": 200,
+      "fontSize": 23,
+      "fontWeight": 700,
+      "color": "#AD00FF",
+      "underline": true,
+      "italic": false,
+      "imageId": 1,
+      "id": 5
+    },
+    {
+      "titre": "titre meme 1",
+      "text": "Kiss u react",
+      "x": 180,
+      "y": 300,
+      "fontSize": 18,
+      "fontWeight": 700,
+      "color": "#FFBCF1",
+      "underline": true,
+      "italic": false,
+      "imageId": 1,
+      "id": 6
     }
   ],
   "images": [
