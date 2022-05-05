@@ -9,7 +9,9 @@ const NavBar = (props) => {
     <div className={style.NavBar} data-testid="NavBar">
       <Navbar bg="primary" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Meme Generator</Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand>Meme Generator</Navbar.Brand>
+          </LinkContainer>
           <Nav className="me-auto">
             <LinkContainer to="/">
               <Nav.Link>Home</Nav.Link>
