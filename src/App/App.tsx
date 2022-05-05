@@ -3,9 +3,10 @@ import MemeSVGViewer from "./components/ui/ConnectedMemeViewer/ConnectedMemeView
 import { ConnectedMemeForm } from "./components/ui/MemeForm/MemeForm";
 import { ConnectedMemeThumbnail } from "./components/ui/MemeThumbnail/MemeThumbnail";
 import NavBar from "./components/ui/NavBar/NavBar";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route, useParams, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { ACTIONS_CURRENT, store } from "./store/store";
+import { ACTIONS_CURRENT, ACTION_RESSOURCES, store } from "./store/store";
+import { PDFConnectedMemeThumbnail } from "./components/pdf/PDFThumbnail/PDFThumbnail";
 
 const App = () => {
   return (
@@ -16,11 +17,12 @@ const App = () => {
         <Route path="/editor" element={<MemeEditor/>} />
         <Route path="/editor/:id" element={<MemeEditor/>} />
         <Route path="/thumbnail" element={<ConnectedMemeThumbnail />} />
+        <Route path="/thumbnailPDF" element={<PDFConnectedMemeThumbnail/>} />
       </Routes>
     </div>
   );
 };
-function MemeEditor() {
+function MemeEditor(props:any) {
   return (
     <FlexW>
       <MemeSVGViewer />
