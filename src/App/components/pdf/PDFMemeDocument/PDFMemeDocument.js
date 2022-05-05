@@ -5,7 +5,7 @@ function PDFMemeDocument(props) {
   return (
     <Document>
         <Page size="A4" orientation='landscape' >
-            <View><Text>{props.meme.titre}</Text></View>
+            <View><Text style={{textAlign:'center'}}>{props.meme.titre}</Text></View>
         </Page>
     </Document>
   )
