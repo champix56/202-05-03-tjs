@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import style from "./MemeThumbnail.module.css";
+import style from "./PDFThumbnail.module.css";
 import { IImage, IMeme } from "orsys-tjs-meme/dist/interfaces/common";
 import { connect } from "react-redux";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import PDFMemeDocument from "../PDFMemeDocument/PDFMemeDocument";
 
 const PDFMemeThumbnail: React.FC<{
   images: Array<IImage>;
@@ -10,11 +12,27 @@ const PDFMemeThumbnail: React.FC<{
 }> = (props) => {
   return (
     <div className={style.PDFMemeThumbnail} data-testid="MemeThumbnail">
-      {props.memes.map((e: IMeme, i: number) => (
-        <div>
-          
-        </div>
-      ))}
+      {props.memes.map((e: IMeme, i: number) => {
+        const imageFound = props.images.find((img) => img.id === e.imageId);
+        return (
+          <div>
+            <PDFViewer
+              showToolbar={true}
+              style={{ height: "500px", width: "500px" }}
+              children={<PDFMemeDocument meme={e} image={imageFound} />}
+            />
+            <br />
+            <div style={{ textAlign: "center" }}>
+              <PDFDownloadLink
+                fileName={`memeGen-${e.titre}-id${e.id}.pdf`}
+                document={<PDFMemeDocument meme={e} image={imageFound} />}
+              >
+                Liens de DL
+              </PDFDownloadLink>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
