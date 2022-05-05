@@ -9,7 +9,7 @@ const ressourcesInitialState = {
 export const ACTION_RESSOURCES = Object.freeze({
   ADD_ALL_RESSOURCES: "ADD_ALL_RESSOURCES",
   INIT_RESSOURCES: "INIT_RESSOURCES",
-  ADD_MEME: "ADD_MEME",
+  ADD_SAVED_MEME: "ADD_SAVED_MEME",
 });
 /**
  * Reducer pour les ressources
@@ -18,7 +18,7 @@ export const ACTION_RESSOURCES = Object.freeze({
  */
 function ressourcesReducer(state = ressourcesInitialState, action) {
   switch (action.type) {
-    case ACTION_RESSOURCES.ADD_MEME:
+    case ACTION_RESSOURCES.ADD_SAVED_MEME:
       return { ...state, memes: [...state.memes, action.value] };
     case ACTION_RESSOURCES.INIT_RESSOURCES:
       const memes = fetch(ADR_REST + "/memes").then((flux) => flux.json());
@@ -38,21 +38,44 @@ function ressourcesReducer(state = ressourcesInitialState, action) {
   }
 }
 
-
-export const ACTIONS_CURRENT=Object.freeze({
-  UPDATE_MEME:'UPDATE_MEME'
+export const ACTIONS_CURRENT = Object.freeze({
+  UPDATE_MEME: "UPDATE_MEME",
+  CLEAR_CURRENT: "CLEAR_CURRENT",
+  SAVE_MEME: "SAVE_MEME",
 });
 
 const currentReducer = (state = DummyMeme, action) => {
   switch (action.type) {
-
-  case ACTIONS_CURRENT.UPDATE_MEME:return {...state,...action.value}
-
-  default:
-    return state
+    case ACTIONS_CURRENT.UPDATE_MEME:
+      return { ...state, ...action.value };
+    case ACTIONS_CURRENT.CLEAR_CURRENT:
+    case ACTION_RESSOURCES.ADD_SAVED_MEME:
+      return { ...DummyMeme };
+    case ACTIONS_CURRENT.SAVE_MEME:
+      fetch(
+        `${ADR_REST}/memes${undefined !== state.id ? "/" + state.id : ""}`,
+        {
+          method: `${undefined !== state.id ? "PUT" : "POST"}`,
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(state),
+        }
+      )
+        .then((flux) => flux.json())
+        .then((o) => {
+          store.dispatch({ type: ACTION_RESSOURCES.ADD_SAVED_MEME, value: o });
+        });
+      return state;
+    default:
+      return state;
   }
-}
-const combinedReduc=combineReducers({current:currentReducer,ressources:ressourcesReducer})
-export const store = createStore(combinedReduc,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+};
+const combinedReduc = combineReducers({
+  current: currentReducer,
+  ressources: ressourcesReducer,
+});
+export const store = createStore(
+  combinedReduc,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-store.dispatch({type: ACTION_RESSOURCES.INIT_RESSOURCES});
+store.dispatch({ type: ACTION_RESSOURCES.INIT_RESSOURCES });
