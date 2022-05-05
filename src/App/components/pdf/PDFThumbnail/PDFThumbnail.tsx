@@ -13,19 +13,24 @@ const PDFMemeThumbnail: React.FC<{
   return (
     <div className={style.PDFMemeThumbnail} data-testid="MemeThumbnail">
       {props.memes.map((e: IMeme, i: number) => {
-        const imageFound = props.images.find((img) => img.id === e.imageId);
+        const doc = (
+          <PDFMemeDocument
+            meme={e}
+            image={props.images.find((img) => img.id === e.imageId)}
+          />
+        );
         return (
           <div>
             <PDFViewer
               showToolbar={true}
               style={{ height: "500px", width: "500px" }}
-              children={<PDFMemeDocument meme={e} image={imageFound} />}
+              children={doc}
             />
             <br />
             <div style={{ textAlign: "center" }}>
               <PDFDownloadLink
                 fileName={`memeGen-${e.titre}-id${e.id}.pdf`}
-                document={<PDFMemeDocument meme={e} image={imageFound} />}
+                document={doc}
               >
                 Liens de DL
               </PDFDownloadLink>
