@@ -47,7 +47,7 @@ const MemeEditor = connect(
   let id = useParams().id;
   useEffect(() => {
     props.select(props.memes.find(m=>m.id===Number(id)));
-  }, [props]);
+  }, [props,id]);
   return (
     <FlexW>
       <MemeSVGViewer />
