@@ -20,7 +20,7 @@ const PDFMemeThumbnail: React.FC<{
           />
         );
         return (
-          <div>
+          <div key={`pdf-${i}`}>
             <PDFViewer
               showToolbar={true}
               style={{ height: "500px", width: "500px" }}
