@@ -10,3 +10,8 @@
     width:24vw;
     height: 24vh;
 }
+/* gestion de la meo des liens de memes */
+.MemeThumbnail>*>svg{
+    height: 100%;
+    width: 100%;
+}
